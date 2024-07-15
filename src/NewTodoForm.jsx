@@ -1,15 +1,35 @@
 import { useState } from 'react'
-import './style.css'
 
+export function NewTodoForm({ onSubmit }){
 
-export function NewTodoForm(){
+  const [newItem, setNewItem] = useState("")
+
+  //con onSubmit-addTodo aggiunge il nuovo task all'invio del form
+  function handleSubmit(e) { 
+    //impedisce ricaricamento pagina.
+    e.preventDefault();
+
+    //se il campo è vuoto non aggiunge nulla
+    if (newItem === "") return;
+
+    //chiama la funzione onSubmit-addTodo e aggiunge il newItem
+    onSubmit(newItem);
+    
+    //svuota il form
+    setNewItem("");
+  }
+
 
   return (
     <div className='container'>
-      <h1>To do List</h1>
-      <form>
-        <label htmlFor="text">Aggiungi task</label>
-        <input type="text" id="task" />
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="item">Aggiungi task</label>
+        <input
+          value={newItem}
+          onChange={ e => setNewItem(e.target.value)} 
+          type="text" 
+          id="item" 
+        />
         <button>INVIA</button>
       </form>
     </div>

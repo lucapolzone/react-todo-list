@@ -31,12 +31,13 @@ button {
 
 
 h1 {
+  margin-top: 2rem;
   color: #FFFF6F;
   text-align: center;
 }
 
 
-input#task {
+input#item {
   border: 1px solid #5c5c5c;
   width: 100%;
   margin: 5px 0;
@@ -69,7 +70,7 @@ li label {
 }
 
 
-.delete-task {
+.delete-item {
   margin-left: auto;
   padding: 4px 6px 4px 5px;
   background-color: red;
