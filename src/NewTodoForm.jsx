@@ -26,7 +26,7 @@ export function NewTodoForm({ onSubmit }){
         <label htmlFor="item">Aggiungi task</label>
         <input
           value={newItem}
-          onChange={ e => setNewItem(e.target.value)} 
+          onChange={ e => setNewItem(e.target.value)} //e.target.value è js plain
           type="text" 
           id="item" 
         />

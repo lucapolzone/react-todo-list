@@ -40,12 +40,28 @@ export default function App(){
     })
   }
 
+    //toggle to-do
+    function toggleTodo(id, completed) {
+      setTodos(currentTodos => {
+        return currentTodos.map(todo => {
+          if (todo.id === id) {
+            //se l'id corrisponde ritorna l'oggetto todo con completed aggiornato 
+            return { ...todo, completed }
+          }
+          
+          // altrimenti ritorna todo come prima
+          return todo
+        })
+      })
+    }
+
+
   return (
     <> 
       <h1>To do List</h1>
       <button onClick={emptyLocalStorage}>SVUOTA Local storage</button>
       <NewTodoForm onSubmit={addTodo} />
-      <TodoList todos={todos} />
+      <TodoList todos={todos} toggleTodo={toggleTodo}/>
     </>
   )
 };
