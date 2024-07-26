@@ -1,4 +1,4 @@
-export function TodoItem({id, title, completed, toggleTodo}){
+export function TodoItem({id, title, completed, toggleTodo, deleteTodo}){
   return (
     <li>
       <label>
@@ -11,7 +11,7 @@ export function TodoItem({id, title, completed, toggleTodo}){
           {title}
         </span>
       </label>
-      <button className="delete-item">
+      <button onClick={() => deleteTodo(id)} className="delete-item">
         Delete
       </button>
     </li>

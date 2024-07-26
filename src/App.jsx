@@ -55,13 +55,20 @@ export default function App(){
       })
     }
 
+    //cancella to-do
+    function deleteTodo(id) {
+      setTodos(currentTodos => {
+        return currentTodos.filter(todo => todo.id !== id)
+      })
+    }
+
 
   return (
     <> 
       <h1>To do List</h1>
       <button onClick={emptyLocalStorage}>SVUOTA Local storage</button>
       <NewTodoForm onSubmit={addTodo} />
-      <TodoList todos={todos} toggleTodo={toggleTodo}/>
+      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo}/>
     </>
   )
 };
